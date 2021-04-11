@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: install dependencies
+      run: pip3 install -r ./requirements.txt
     - name: cmake version
       run: cmake --version
     - name: create buildfolder
@@ -22,4 +24,4 @@ jobs:
     - name: build 
       run: cmake --build build
     - name: run application
-      run: ./build/hello
+      run: ./build/bin/hello
