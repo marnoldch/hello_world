@@ -25,3 +25,10 @@ jobs:
       run: cmake --build build
     - name: run application
       run: ./build/bin/hello
+    - name: run test
+      run: cmake --build build --target test
+    - name: JUnit Report Action
+      uses: mikepenz/action-junit-report@v2.2.2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        report_paths: './build/junit.xml'
